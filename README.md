@@ -8,3 +8,6 @@ after they are split a model is made and trained with the data and dumped to a f
 
 ## FACEDECT.PY 
 This takes in live camera feed and parses into single frames in which are passed through the trained model to make a prediction 
+
+
+### I NEED DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
