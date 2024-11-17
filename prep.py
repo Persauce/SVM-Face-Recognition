@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import os
+from joblib import dump
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
@@ -8,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.decomposition import PCA
 
 
-# Preprocessing data retrieving from current directory and parsing data into np arrays for encoding and splitting 
+"""Part 1   Data Preproccessing"""
 direct = "./faces"
 images, labels = [] , []
 
@@ -36,3 +37,9 @@ x_test_pca = pca.transform(x_train_pca)
 
 svm = SVC(kernel='rbf', C=10, gamma='scale')  # Adjust hyperparameters
 svm.fit(x_train_pca, y_train)
+
+"""Part 3   Dumping the Model to be Used in the File with Live Feed"""
+
+dump(svm, "svm.pkl")
+dump(pca, "pca.pkl")
+dump(y, "labels.pkl")
